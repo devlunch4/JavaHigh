@@ -71,6 +71,7 @@ public class ListTest2 {
 		// --------------------------------------------------
 		System.out.println("=====문제2");
 		// --------------------------------------------------
+
 		// 문제2 별명 입력 받고 별명 길이가 가장 긴 사람 출력
 		// 문제2 리스트
 		ArrayList<String> list2 = new ArrayList<>();
@@ -91,6 +92,8 @@ public class ListTest2 {
 
 		int maxIndex = 0;
 		int maxLength = 0;
+
+		System.out.println(list2);
 
 		for (int i = 0; i < list2.size(); i++) {
 			if (list2.get(i).length() > maxLength)
@@ -122,6 +125,8 @@ public class ListTest2 {
 		// 문제3 별명 입력 받고 별명 길이가 가장 긴 사람 출력 동일할시 출력
 		// 별명 동일갚 추가
 		list2.add("67890");
+
+		System.out.println(list2);
 
 		for (String samestr : list2) {
 			if (samestr.length() == maxLength) {
