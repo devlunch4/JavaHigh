@@ -3,7 +3,7 @@ package kr.or.ddit.basic;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Iterator;
+
 
 public class ListSortTest3 {
 
@@ -117,8 +117,8 @@ class Student implements Comparable<Student> {
 		this.kscore = kscore;
 		this.escore = escore;
 		this.mscore = mscore;
-		this.totalscore = totalscore;
-		this.rank = rank;
+		//this.totalscore = totalscore;
+		//this.rank = rank;
 	}
 
 	// 내부정렬 설정

@@ -1,7 +1,6 @@
 package kr.or.ddit.basic;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class ListTest2 {
@@ -16,6 +15,7 @@ public class ListTest2 {
 	// 문제3) 문제2에서 별명의 길이가 같은 것이 여러개 있을 경우를 처리하시오
 	// (즉, 제일 긴 별명 모두 출력한다.
 
+	@SuppressWarnings({ "unused", "resource" })
 	public static void main(String[] args) {
 
 		// --------------------------------------------------
@@ -26,8 +26,8 @@ public class ListTest2 {
 		ArrayList<String> list1 = new ArrayList<>();
 
 		Scanner scan = new Scanner(System.in);
-		String name = null;
-
+		
+		//String name = null;
 		// 이름입력 메소드
 		// for (int i = 0; i < 5; i++) {
 		// System.out.println("이름을 입력해주세요");
