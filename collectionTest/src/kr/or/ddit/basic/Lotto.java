@@ -10,7 +10,8 @@ public class Lotto {
 	static Scanner scan = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		start();
+		Lotto l = new Lotto();
+		l.start();
 	}
 
 	public static int start() {
@@ -34,7 +35,7 @@ public class Lotto {
 			// 금액에 따른 구입수 및 번호 출력
 			buy(money);
 
-			return start();
+			break;
 		case 2:
 			System.out.println("프로그램을 종료합니다.");
 			System.exit(0);
@@ -42,7 +43,7 @@ public class Lotto {
 		default:
 			System.out.println("!!!잘못된 입력");
 			System.out.println();
-			return start();
+			break;
 		}
 		return start();
 
