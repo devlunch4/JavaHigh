@@ -1,7 +1,9 @@
 package kr.or.ddit.basic;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
-import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class HotelOperation {
@@ -51,14 +53,18 @@ public class HotelOperation {
 		int input = scan.nextInt();
 
 		switch (input) {
-		case 1:
+		case 1: // 체크인
 			checkin();
 			break;
-		case 2:// 체크인
+		case 2:// 체크아웃
+			checkout();
 			break;
-		case 3:// 체크인
+		case 3:// 객실상태 출력
+			status();
 			break;
-		case 0:// 체크인
+		case 4:// 업무종료
+			System.out.println("업무를 종료합니다.");
+			System.exit(0);
 			break;
 
 		default:
@@ -67,6 +73,55 @@ public class HotelOperation {
 			break;
 		}
 		return display();
+
+	}
+
+	private void status() {
+		// 리스트 설정 ==> 맵정보를 리스트로 전환 생성
+		List<Integer> roomList = new ArrayList<>(hmap.keySet());
+		// 리스트 정렬
+		Collections.sort(roomList);
+
+		System.out.println("----------------------------------------------");
+		System.out.println(" 현재 객실 상태");
+		System.out.println("----------------------------------------------");
+		System.out.println("방 번호\t\t방 종류\t\t투숙객 이름");
+		System.out.println("--------------------------------------");
+		// 리스트 출력
+		for (int roomNum : roomList) {
+			Room r = hmap.get(roomNum);
+			System.out.print(r.getNum() + "\t\t" + r.getType() + "\t\t");
+			// 투숙객 존재 유무 판별
+			String name = " - ";
+			if (r.getCustomer() != null) {
+				name = r.getCustomer();
+			}
+			System.out.println(name);
+		}
+		System.out.println("--------------------------------------");
+		System.out.println();
+	}
+
+	private void checkout() {
+		System.out.println("----------------------------------------------");
+		System.out.println("체크아웃 작업");
+		System.out.println("----------------------------------------------");
+		System.out.println("체크아웃할 방 번호 입력 >>>");
+		int num = scan.nextInt();
+		if (!hmap.containsKey(num)) {
+			System.out.println(num + " 호 객실은 존재하지 않습니다.");
+			System.out.println();
+			return;
+		} else if (hmap.get(num).getCustomer() == null) {
+			System.out.println("체크인 중이 아닙니다.");
+			System.out.println();
+			return;
+		} else {
+			System.out.println(hmap.get(num).getNum() + "호 " + hmap.get(num).getCustomer() + " 님");
+			hmap.get(num).setCustomer(null);
+		}
+		System.out.println("체크아웃 되었습니다.");
+		System.out.println();
 
 	}
 
@@ -79,7 +134,7 @@ public class HotelOperation {
 		System.out.println("* 401~409 : 스위트룸");
 		System.out.println("----------------------------------------------");
 
-		System.out.println("방 번호 입력 >>>");
+		System.out.println("체크인할 방 번호 입력 >>>");
 		int num = scan.nextInt();
 
 		// 입력 오류 값 확인하기
