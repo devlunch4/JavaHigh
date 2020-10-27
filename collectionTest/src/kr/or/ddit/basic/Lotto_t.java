@@ -10,8 +10,9 @@ public class Lotto_t {
 	static Scanner scan = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		Lotto_t l = new Lotto_t();
-		l.start();
+		// Lotto_t l = new Lotto_t();
+		// l.start();
+		start();
 	}
 
 	public static int start() {

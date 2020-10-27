@@ -33,6 +33,7 @@ public class BaseBallTest {
 	// 기능을 메소드 별로 생성해보기
 
 	public static void main(String[] args) {
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 
 		// 난수 담을 set 생성

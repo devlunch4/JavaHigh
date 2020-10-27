@@ -9,13 +9,13 @@ public class Lotto {
 
 	static Scanner scan = new Scanner(System.in);
 
-	@SuppressWarnings("static-access")
+	
 	public static void main(String[] args) {
 		Lotto l = new Lotto();
 		l.start();
 	}
 
-	public static int start() {
+	public int start() {
 		// TODO Auto-generated method stub
 
 		System.out.println("===Lotto 프로그램");
