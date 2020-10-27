@@ -12,6 +12,7 @@ public class HotelOperation {
 	static Scanner scan = new Scanner(System.in);
 
 	public void makeroom() {
+		// 타입별 방 생성
 		for (int i = 2; i <= 4; i++) {
 			String type = null;
 			switch (i) {
@@ -31,11 +32,13 @@ public class HotelOperation {
 				hmap.put(num, room);
 			}
 		}
+		// 방생성 완료 호텔 개장
 		System.out.println("*********************************************");
 		System.out.println("		호텔문을 열었습니다. 어서오십시요. ;D");
 		System.out.println("*********************************************");
 	}
 
+	//메인 메소드
 	public static void main(String[] args) {
 		HotelOperation hotel = new HotelOperation();
 		hotel.makeroom();
@@ -43,6 +46,7 @@ public class HotelOperation {
 
 	}
 
+	//화면 표시
 	private int display() {
 		System.out.println("-----------------------------------------------------------");
 		System.out.println("어떤 업무를 하시겠습니까?");
@@ -76,6 +80,7 @@ public class HotelOperation {
 
 	}
 
+	//상태 출력
 	private void status() {
 		// 리스트 설정 ==> 맵정보를 리스트로 전환 생성
 		List<Integer> roomList = new ArrayList<>(hmap.keySet());
@@ -102,6 +107,7 @@ public class HotelOperation {
 		System.out.println();
 	}
 
+	//체크아웃
 	private void checkout() {
 		System.out.println("----------------------------------------------");
 		System.out.println("체크아웃 작업");
@@ -125,6 +131,7 @@ public class HotelOperation {
 
 	}
 
+	//체크인
 	private void checkin() {
 		System.out.println("----------------------------------------------");
 		System.out.println("체크인 작업");
