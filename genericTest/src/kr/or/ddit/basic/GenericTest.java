@@ -74,9 +74,9 @@ public class GenericTest {
 		System.out.println();
 		System.out.println("-----------------------------------");
 
-		GenericClass<String> gc1 = new GenericClass();
+		GenericClass<String> gc1 = new GenericClass<String>();
 
-		GenericClass<Integer> gc2 = new GenericClass();
+		GenericClass<Integer> gc2 = new GenericClass<Integer>();
 
 		gc1.setVal("우리나라");
 		// 에러 // gc1.setVal(123123); // 제네릭과 다른 데이터를 사용하면 오류가 난다
