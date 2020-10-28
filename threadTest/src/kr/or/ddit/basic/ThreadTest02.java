@@ -31,7 +31,7 @@ public class ThreadTest02 {
 		// 방법2
 		// Runnable 인터페이스를 구현한 class의 인스턴스를 생성한 후
 		// 이 인스턴스를 Thread의 인스턴스를 생성할 때 생성자의 인수값으로 넘겨준다.
-		// 이 떄 생성된 Thread의 ㅇ니스턴스의 start()메서드를 호출해서 실행한다.
+		// 이 떄 생성된 Thread의 인스턴스의 start()메서드를 호출해서 실행한다.
 
 		// 클래스 호출
 		MyThread2 r2 = new MyThread2();
@@ -40,14 +40,14 @@ public class ThreadTest02 {
 		// 두번째 스레드 시작호출
 		th2.start();
 
-		// 방법3 ==> 익명 구혀체를 이용하는 방법
+		// 방법3 ==> 익명 구현체를 이용하는 방법
 		Runnable r3 = new Runnable() {
 			@Override
 			public void run() {
 				for (int i = 0; i <= 200; i++) {
 					System.out.print("%");
 					try {
-						Thread.sleep(50);
+						Thread.sleep(10);
 					} catch (InterruptedException e) {
 						System.out.println("오류발생 r3");
 					}
@@ -76,7 +76,7 @@ class MyThread1 extends Thread {
 				// Thread.sleep(시간); ==> 주어진 '시간'동안 작업을 잠시 멈춘다.
 				// '시간'은 밀리세컨드 단위를 사용한다.
 				// 즉, 1000은 1초를 의미한다.
-				Thread.sleep(50);
+				Thread.sleep(10);
 			} catch (InterruptedException e) {
 				System.out.println("오류발생 th1");
 			}
@@ -92,7 +92,7 @@ class MyThread2 implements Runnable {
 		for (int i = 0; i <= 200; i++) {
 			System.out.print("$");
 			try {
-				Thread.sleep(50);
+				Thread.sleep(10);
 			} catch (InterruptedException e) {
 				System.out.println("오류발생 th2");
 			}

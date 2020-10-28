@@ -17,7 +17,7 @@ public class ThreadTest06 {
 }
 
 // 데이터를 입력하는 쓰레드
-class DateInput extends Thread {
+class DateInput extends  Thread {
 	// 입력 여부 확인을 위한 변수 선언 ==> 쓰레드에서 공통으로 사용할 변수
 	public static boolean inputchk;
 

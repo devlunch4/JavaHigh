@@ -31,7 +31,7 @@ public class ThreadTest07 {
 class Count extends Thread {
 	@Override
 	public void run() {
-		for (int i = 3; i > 0; i--) {
+		for (int i = 10; i > 0; i--) {
 			// 입력이 완료된 여부 검사- 입력이 완료되면 쓰레드를 종료시킨다.
 			if (xGame.inputchk == true) {
 				return; // run() 메서드가 종료되면 해당 쓰레드로 종료된다.
