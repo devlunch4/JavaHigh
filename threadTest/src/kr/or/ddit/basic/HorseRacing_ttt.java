@@ -28,20 +28,20 @@ public class HorseRacing_ttt {
 
 	public static void main(String[] args) {
 
-		List<Horse_t> list = new ArrayList<Horse_t>();
+		List<Horse_ttt> list = new ArrayList<Horse_ttt>();
 		
-		list.add(new Horse_t("천둥"));
-		list.add(new Horse_t("용식"));
-		list.add(new Horse_t("번개"));
-		list.add(new Horse_t("바람"));
-		list.add(new Horse_t("사랑"));
-		list.add(new Horse_t("기둥"));
-		list.add(new Horse_t("계룡"));
-		list.add(new Horse_t("도리"));
-		list.add(new Horse_t("날쌘"));
-		list.add(new Horse_t("당근"));
+		list.add(new Horse_ttt("천둥"));
+		list.add(new Horse_ttt("용식"));
+		list.add(new Horse_ttt("번개"));
+		list.add(new Horse_ttt("바람"));
+		list.add(new Horse_ttt("사랑"));
+		list.add(new Horse_ttt("기둥"));
+		list.add(new Horse_ttt("계룡"));
+		list.add(new Horse_ttt("도리"));
+		list.add(new Horse_ttt("날쌘"));
+		list.add(new Horse_ttt("당근"));
 		
-		for(Horse_t horse : list) {
+		for(Horse_ttt horse : list) {
 			horse.start();
 		}
 		
@@ -51,14 +51,14 @@ public class HorseRacing_ttt {
 	}
 }
 
-class Horse_t extends Thread implements Comparable<Horse_t>{
+class Horse_ttt extends Thread implements Comparable<Horse_ttt>{
 
 	private String hname;
 	private int rank = 0;
 	private int location = 0;
 	private boolean goal = false;
 
-	public Horse_t(String hname) {
+	public Horse_ttt(String hname) {
 		this.hname = hname;
 	}
 
@@ -107,7 +107,7 @@ class Horse_t extends Thread implements Comparable<Horse_t>{
 	}
 
 	@Override
-	public int compareTo(Horse_t horse) {
+	public int compareTo(Horse_ttt horse) {
 		if(this.rank > horse.rank) {
 			return 1;
 		}else if(this.rank == horse.rank) {
@@ -120,9 +120,9 @@ class Horse_t extends Thread implements Comparable<Horse_t>{
 
 
 class PrintHorse extends Thread{
-	List<Horse_t> list;
+	List<Horse_ttt> list;
 	
-	public PrintHorse(List<Horse_t> horseList) {
+	public PrintHorse(List<Horse_ttt> horseList) {
 		this.list = horseList;
 	}
 	
@@ -134,7 +134,7 @@ class PrintHorse extends Thread{
 		
 		while(running) {
 			
-			for(Horse_t horse : list) {
+			for(Horse_ttt horse : list) {
 				if(horse.isGoal() == true) { //도착하면
 					System.out.print(horse.getHname() + " : " + " ");
 					
@@ -182,7 +182,7 @@ class PrintHorse extends Thread{
 			}
 		}
 		Collections.sort(list);
-		for(Horse_t horse : list) {
+		for(Horse_ttt horse : list) {
 			System.out.println(horse.getHname() + " 말  : " + horse.getRank() + " 등!!!");
 			System.out.println();
 		}

@@ -1,6 +1,5 @@
 package kr.or.ddit.basic;
 
-
 public class ThreadTest13_first {
 
 	// 문제) 10마리의 말들이 경주하는 경마 프로그램 작성하기
@@ -22,16 +21,14 @@ public class ThreadTest13_first {
 	//
 	// 경기가 끝나면 등수 순으로 경기 결과를 출력한다.
 
-	
-	
-	//텍스트로 표현
+	// 텍스트로 표현
 	public static void main(String[] args) {
 		Horse[] h = new Horse[] { //
 				new Horse("1번말"), //
 				new Horse("2번말"), //
 				new Horse("3번말"), //
 		};
-		
+
 		// 실행
 		for (Horse horse : h) {
 			horse.start();
@@ -45,7 +42,6 @@ public class ThreadTest13_first {
 			}
 			// 모든것이 끝난 후 출력
 		}
-
 	}
 }
 
@@ -57,13 +53,12 @@ class Horse extends Thread {
 	public Horse(String name) {
 		super();
 		this.name = name;
-		this.rank = rank;
-		this.state = state;
+		// this.rank = rank;
+		// this.state = state;
 	}
 
 	@Override
 	public void run() {
-
 		int speed = (int) (Math.random() * (500 - 1 - 1) + 1);
 		for (int i = 10; i >= 0; i--) {
 			System.out.println(name + "의 현채위치 : " + state);
@@ -72,13 +67,10 @@ class Horse extends Thread {
 				Thread.sleep(speed);
 			} catch (Exception e) {
 			}
-			
-						
 		}
 
 		// 완주자 표시
 		Horse.rank++;
 		System.out.println(name + "완주 ===" + "순위 : " + rank);
-
 	}
 }
