@@ -1,5 +1,14 @@
 package kr.or.ddit.basic;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -11,8 +20,16 @@ import java.util.Scanner;
 		이 프로그램에는 전화번호를 등록, 수정, 삭제, 검색, 전체 출력하는 기능이 있다.
 		
 		(Map의 구조는 key값으로 '이름'을 사용하고, value값으로는 'Phone클래스의 인스턴스'로 한다.)
-		 
+		
 		- 삭제, 검색기능은 '이름'을 입력받아 처리한다.
+		
+			-추가조건
+	1)메뉴에 '6.전화번호 저장' 메뉴를 추가하고 전화번호를 저장하는 기능을 구현한다.
+	(저장 파일명 : phoneDate.dat)
+	2) 프로그램이 시작될때 저장된 파일이 있으면 그 데이터를 읽어와 Map에 저장한다.
+	3)프로그램을 종료할 때 전화번호 데이터가 변경되거나 추가 또는 삭제되면
+	변경된 데이터를 저장한 후에 종료되도록 한다.
+	(즉, 데이터가 변경되었는데 저장이 되지 않은 상태이면 저장한다.)
 		
 	-------------------------------------------------
 	
@@ -86,16 +103,24 @@ import java.util.Scanner;
 	
 */
 public class PhoneBookTest_data {
-	private Map<String, Phone_t> phoneBookMap;
+	private Map<String, Phone_data> phoneBookMap;
 	private Scanner scan;
+	// 전화번호부 파일명 설정
+	private String fileName = "d:/D_Other/phoneData.dat";
 	
-	//전화번호부 파일명 설정
-	private String fileNmae = "d:/D-Other/phoneData.dat";
-
+	//데이터가 변경되었는지 여뷰를 나타내는 변수 선언 ==> 데이터가 변경되면  true가 된다
+	boolean dataChange = false;
 	// 생성자
 	public PhoneBookTest_data() {
-		phoneBookMap = new HashMap<>();
+		// phoneBookMap = new HashMap<>();
+		phoneBookMap = load();// 파일내용을 읽어와 map에 저장
+		if(phoneBookMap == null) {//저장파일이 없거나 잘못외었을때.
+			phoneBookMap = new HashMap<>();
+			
+		}
 		scan = new Scanner(System.in);
+
+		// 시작시저장된 다이테를 저장가능
 	}
 
 	public static void main(String[] args) {
@@ -128,8 +153,8 @@ public class PhoneBookTest_data {
 			case 5: // 전체 출력
 				displayAll();
 				break;
-				
 			case 6: // 저장
+				if(dataChange ==true){System.out.println("변경된 내용을 저장합니다.");};
 				save();
 				break;
 			case 0: // 종료
@@ -143,12 +168,57 @@ public class PhoneBookTest_data {
 
 	}
 
-	
-	
-	//저장하는 메소드
+	// !!!! 파일에 저장된 전화번호 정보를 읽어오는 메서드
+	public HashMap<String, Phone_data> load() {
+		// 저장할 객체(읽어온 데이터가 저장)
+		HashMap<String, Phone_data> pMap = null;
+		File file = new File(fileName);
+
+		if (!file.exists()) {
+			return null;
+		}
+
+		//// 저장된 파일이 있으면 처리되는 곳
+		ObjectInputStream ois = null;
+		try {
+			ois = new ObjectInputStream(new BufferedInputStream(new FileInputStream(fileName)));
+			pMap = (HashMap<String, Phone_data>) ois.readObject();
+		} catch (IOException e) {
+			return null;
+		} catch (ClassNotFoundException e) {
+			return null;
+		} finally {
+			if (ois != null)
+				try {
+					ois.close();
+				} catch (IOException e) {
+					// TODO: handle exception
+				}
+		}
+		return pMap;
+	}
+
+	// !!!!!!!!저장하는 메소드
 	private void save() {
-		// TODO Auto-generated method stub
-		
+		ObjectOutputStream oos = null;
+		try {
+			// 객체를 출력하기위한 출력용 스트림 객체 생성
+			oos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(fileName)));
+
+			// Map객체를 파일로 저장한다
+			oos.writeObject(phoneBookMap);
+			System.out.println("저장이 완료되었습니다.");
+			dataChange = false;
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			// 사용 했던 스트림 객체 닫기
+			if (oos == null)
+				try {
+					oos.close();
+				} catch (IOException e) {
+				}
+		}
 	}
 
 	// 전화번호 정보를 검색하는 메서드
@@ -165,7 +235,7 @@ public class PhoneBookTest_data {
 		}
 
 		// 검색한 데이터가 있으면 해당 key값에 맞는 value값을 구한다.
-		Phone_t p = phoneBookMap.get(name);
+		Phone_data p = phoneBookMap.get(name);
 
 		System.out.println();
 		System.out.println(name + "씨의 전화번호 정보");
@@ -178,6 +248,7 @@ public class PhoneBookTest_data {
 	}
 
 	// 전화번호 정보를 삭제하는 메서드
+	
 	private void delete() {
 		System.out.println();
 		System.out.println("삭제할 전화번호 정보를 입력하세요.");
@@ -225,11 +296,12 @@ public class PhoneBookTest_data {
 		 */
 
 		// 방법2
-		Phone_t p = phoneBookMap.get(name); // 키값을 이용해서 value값을 구한다.
+		Phone_data p = phoneBookMap.get(name); // 키값을 이용해서 value값을 구한다.
 		p.setTel(newTel); // 구해온 Phone객체의 각각의 데이터를 변경한다.
 		p.setAddr(newAddr);
 
 		System.out.println(name + "씨의 전화번호 정보를 변경하였습니다.");
+		dataChange = true;
 
 	}
 
@@ -249,7 +321,7 @@ public class PhoneBookTest_data {
 			while (phoneIt.hasNext()) {
 				cnt++;
 				String name = phoneIt.next(); // 키값(등록된 사람이름) 찾기
-				Phone_t p = phoneBookMap.get(name); // value값(Phone객체) 구하기
+				Phone_data p = phoneBookMap.get(name); // value값(Phone객체) 구하기
 				System.out.println("   " + cnt + "   " + p.getName() + "    " + p.getTel() + "    " + p.getAddr());
 			} // while문
 		} // else 문
@@ -283,7 +355,7 @@ public class PhoneBookTest_data {
 
 		// Phone p = new Phone(name, tel, addr);
 		// phoneBookMap.put(name, p);
-		phoneBookMap.put(name, new Phone_t(name, tel, addr));
+		phoneBookMap.put(name, new Phone_data(name, tel, addr));
 
 		System.out.println(name + "씨 전화번호 등록 완료!!!");
 
@@ -317,6 +389,7 @@ public class PhoneBookTest_data {
 		System.out.println("  3. 전화번호 삭제");
 		System.out.println("  4. 전화번호 검색");
 		System.out.println("  5. 전화번호 전체 출력");
+		System.out.println("  6. 전화번호 저장");
 		System.out.println("  0. 프로그램 종료");
 		System.out.println("---------------------------");
 		System.out.print("  번호 입력 >> ");
@@ -326,13 +399,18 @@ public class PhoneBookTest_data {
 
 }
 
+
 // 하나의 전화번호 정보(이름, 주소, 전화번호)를 멤버로 갖는 Phone클래스
-class Phone_t {
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! implements Serializable 추가완료!
+class Phone_data implements Serializable {
+
+	// !!!!시리얼번호 추가완료
+	private static final long serialVersionUID = 7090933508025913485L;
 	private String name;
 	private String tel;
 	private String addr;
 
-	public Phone_t(String name, String tel, String addr) {
+	public Phone_data(String name, String tel, String addr) {
 		super();
 		this.name = name;
 		this.tel = tel;
