@@ -43,7 +43,6 @@ public class JdbcTest03 {
 			//
 			// 해당 입력 값을 받아서 while 문 안에서 if 문으로 돌린다.
 			// lprod_id 값 2개를 차례로 입력받아서 두 값중 작은값부터 큰값사이의 자료들을 출력하시오
-
 			Scanner scan = new Scanner(System.in);
 			System.out.println("lprod는 1~9까지 있습니다.>>");
 			System.out.println("범위내 숫자지정을 위해 첫번째 지정 숫자 입력>>");
@@ -59,9 +58,7 @@ public class JdbcTest03 {
 			} else if (input1 > input2) {
 				start = input2;
 				end = input1;
-
 			}
-
 			//
 			//
 			//
