@@ -73,6 +73,11 @@ public class JdbcTest02 {
 					System.out.println("Lprod_nm : " + rs.getString("lprod_nm"));
 					System.out.println("---------------------------------");
 				}
+				
+				//
+				//또는 
+				//String sql = "select * from lprod where lprid_id >" + id;
+				//사용
 			}
 			System.out.println("전체자료 출력 끝...");
 
