@@ -28,23 +28,21 @@ public class JdbcTest02_t {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "PC20", "java");
-			/*
-			 * String sql = "select * from lprod where lprod_id > " + id;
-			 * System.out.println("실행한 SQL문 : " + sql); System.out.println();
-			 * 
-			 * stmt = conn.createStatement();
-			 * 
-			 * rs = stmt.executeQuery(sql);
-			 */
-			String sql = "select * from ?";
+			String sql = "select * from lprod where lprod_id > " + id;
+			System.out.println("실행한 SQL문 : " + sql);
+			System.out.println();
+
+			stmt = conn.createStatement();
+
+			rs = stmt.executeQuery(sql);
+
 			// 추가
 			// String sql = "select * from " + "$?";
 			// String query = sql.replace("$?",id);
 			// 추가
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setObject(1, id);
-
-			rs = pstmt.executeQuery();
+			//pstmt = conn.prepareStatement(sql);
+			//pstmt.setObject(1, id);
+			//rs = pstmt.executeQuery();
 
 			while (rs.next()) {
 				// if(id < rs.getInt("LPROD_ID")) {
