@@ -8,10 +8,8 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 import util.DBUtil;
-import util.DBUtil2;
-import util.DBUtil3;
 
-public class JdbcTest06_used_bundle {
+public class JdbcTest06_ori {
 
 	// 회원을 관리하는 프로그램 작성하기
 	// (db시스템의 mymember 테이블 이용)
@@ -28,7 +26,7 @@ public class JdbcTest06_used_bundle {
 	// --작업성택
 	// 1.자료추가 insert C
 	// 2.자료삭제 delete D
-	// 3.제목수정 i[date U
+	// 3.제목수정 update U
 	// 4.전체 자료 출력 select R
 	// 0.작업끝
 	// -------
@@ -43,7 +41,7 @@ public class JdbcTest06_used_bundle {
 	ResultSet rs = null;
 
 	public static void main(String[] args) {
-		new JdbcTest06_used_bundle().display();
+		new JdbcTest06_ori().display();
 	}
 
 	// 디스플레이
@@ -94,11 +92,7 @@ public class JdbcTest06_used_bundle {
 		System.out.println("---------------------------------------------------------");
 		try {
 			// 외부 클래스 사용 접속-연결자 수행
-			// conn = DBUtill.getConnection();
-
-			// !!!!!!!!!!!!!!!!!!!!!!
-			// properties 사용
-			conn = DBUtil3.getConnection();
+			conn = DBUtil.getConnection();
 			String sqlAll = "SELECT * FROM mymember ORDER BY mem_id";
 
 			pstmt = conn.prepareStatement(sqlAll);

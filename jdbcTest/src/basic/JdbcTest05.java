@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
-import util.DBUtill;
+import util.DBUtil;
 
 /*
  * MVC패턴에 대하여 조사하여 학습하기
@@ -39,7 +39,7 @@ public class JdbcTest05 {
 
 			/////////////
 			// 아래 주석은 DBUtill 외부 클래스 사용
-			conn = DBUtill.getConnection();
+			conn = DBUtil.getConnection();
 
 			// Lprod_id값 구하기 ==> 현재의 Lprod_id값 중에서 제일 큰 값보다 1 크게 한다.
 			String sql = "select nvl(max(lprod_id),0) maxnum from lprod";

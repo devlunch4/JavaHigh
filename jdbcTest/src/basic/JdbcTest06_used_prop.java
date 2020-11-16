@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
-import util.DBUtill;
-import util.DBUtill2;
+import util.DBUtil;
+import util.DBUtil2;
 
 public class JdbcTest06_used_prop {
 
@@ -97,7 +97,7 @@ public class JdbcTest06_used_prop {
 
 			// !!!!!!!!!!!!!!!!!!!!!!
 			// properties 사용
-			conn = DBUtill2.getConnection();
+			conn = DBUtil2.getConnection();
 			String sqlAll = "SELECT * FROM mymember ORDER BY mem_id";
 
 			pstmt = conn.prepareStatement(sqlAll);
@@ -144,7 +144,7 @@ public class JdbcTest06_used_prop {
 	private void dataUpdate() {
 		try {
 			// 외부 클래스 사용 접속-연결자 수행
-			conn = DBUtill.getConnection();
+			conn = DBUtil.getConnection();
 
 			// mem_id 값의 중복 유무 확인 후 데이터 값 입력
 			String memid;
@@ -232,7 +232,7 @@ public class JdbcTest06_used_prop {
 	private void dataDelete() {
 		try {
 			// 외브 클래스 사용 접속-연결자 수행
-			conn = DBUtill.getConnection();
+			conn = DBUtil.getConnection();
 
 			// mem_id 값의 중복 유무 확인 후 데이터 값 입력
 			String memid;
@@ -302,7 +302,7 @@ public class JdbcTest06_used_prop {
 	// 자료 추가
 	private void dataAdd() {
 		try {// 외부 클래스 사용 접속-연결자 수행
-			conn = DBUtill.getConnection();
+			conn = DBUtil.getConnection();
 
 			// mem_id 값의 중복 유무 확인 후 데이터 값 입력
 
