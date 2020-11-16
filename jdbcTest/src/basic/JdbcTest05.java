@@ -1,7 +1,6 @@
 package basic;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -78,7 +77,8 @@ public class JdbcTest05 {
 
 			System.out.print("상품분류명 입력 : ");
 			String nm = scan.next();
-
+			scan.close();
+			
 			String sql3 = "insert into lprod (lprod_id, lprod_gu, lprod_nm) " + " values (?, ?, ?)";
 			pstmt = conn.prepareStatement(sql3);
 			pstmt.setInt(1, maxNum);
@@ -92,7 +92,7 @@ public class JdbcTest05 {
 			} else {
 				System.out.println("DB 추가 실패~~");
 			}
-
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			// 아래 주석은 DBUtill 외부 클래스 사용

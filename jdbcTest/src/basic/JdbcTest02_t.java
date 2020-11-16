@@ -17,7 +17,7 @@ public class JdbcTest02_t {
 		System.out.print("Lprod_id값 입력 >> ");
 		// int id = scan.nextInt();
 		String id = scan.nextLine();
-
+		scan.close();
 		// DB작업에 필요한 변수 선언
 		Connection conn = null;
 		Statement stmt = null;

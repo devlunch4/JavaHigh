@@ -48,7 +48,7 @@ public class JdbcTest05_t {
 
 			System.out.println("lprod_nm : ");
 			String nm = scan.next();
-
+			scan.close();
 			// statement 객체이용하여 추가하기
 
 			//

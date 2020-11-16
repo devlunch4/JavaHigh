@@ -52,6 +52,7 @@ public class JdbcTest02 {
 			System.out.println("입력 숫자 이후의 lprod의 정보가 출력됩니다.>>");
 			System.out.println("숫자를 입력하세요>>");
 			int input = scan.nextInt();
+			scan.close();
 			//
 			//
 			//

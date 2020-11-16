@@ -34,7 +34,7 @@ public class JdbcTest04_t {
 			
 			System.out.print("예금주 명 : ");
 			String userName = scan.next();
-			
+			scan.close();
 			// Statement객체를 이용하여 추가하기
 		/*	
 		insert into bankinfo (bank_no, bank_name, bank_user_name, bank_date)

@@ -125,7 +125,7 @@ public class JdbcTest04 {
 
 			System.out.println("예금주명 : ");
 			String userName = scan.next();
-
+			scan.close();
 			// statement 객체이용하여 추가하기
 
 			//

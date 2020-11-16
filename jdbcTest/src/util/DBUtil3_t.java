@@ -15,7 +15,7 @@ public class DBUtil3_t {
 		bundle = ResourceBundle.getBundle("dbinfo");
 		
 		try {
-//			Class.forName("oracle.jdbc.driver.OracleDriver");
+			//Class.forName("oracle.jdbc.driver.OracleDriver");
 			Class.forName(bundle.getString("driver"));
 		} catch (ClassNotFoundException e) {
 			System.out.println("드라이버 로딩 실패~~~");

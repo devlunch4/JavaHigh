@@ -49,7 +49,8 @@ public class JdbcTest03 {
 			int input1 = scan.nextInt();
 			System.out.println("범위내 숫자지정을 위해 첫번째 지정 숫자 입력>>");
 			int input2 = scan.nextInt();
-
+			scan.close();
+			
 			int start = 0;
 			int end = 0;
 			if (input1 < input2) {
