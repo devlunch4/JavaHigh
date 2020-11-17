@@ -100,6 +100,8 @@ public class RemoteClient {
 				// 서버의 파일 전송요 메서드를 호출한다.
 				inf.transFile(fileVo);
 				System.out.println("파일전송 작업 끝...");
+				fin.close();
+				scan.close();
 			}
 
 		} catch (RemoteException e) {

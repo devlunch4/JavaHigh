@@ -20,6 +20,7 @@ public class UdpServer {
 
 		try {
 			// 통신할 포트번호를 지정하여 UDP용 소켓을 생성한다.
+			@SuppressWarnings("resource")
 			DatagramSocket socket = new DatagramSocket(8888);
 
 			// 수신용 패킷변수와 송신용 패킷변수 선언
@@ -81,9 +82,11 @@ public class UdpServer {
 				// 송신하기 == Socket의 send()매서드를 이용한다,
 				socket.send(outpacket);
 				System.out.println("전송완료....");
+
 			}
 
 		} catch (Exception e) {
+
 			// TODO: handle exception
 		}
 

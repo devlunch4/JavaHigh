@@ -67,4 +67,8 @@ public class MemberServiceImpl_ex_singleton implements IMemberService {
 		return dao.getMemberCount(memId);
 	}
 
+	public int updateName(MemberVO memVo) {
+		return dao.updateName(memVo);
+	}
+
 }

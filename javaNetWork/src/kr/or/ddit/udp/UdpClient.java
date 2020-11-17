@@ -55,12 +55,12 @@ public class UdpClient {
 				System.out.println("서버에서온 응답 데이터 : " + new String(bMsg, 0, inpacket.getLength()));
 				System.out.println();
 			} // while 문 끝 종료
+			socket.close();
 		} catch (Exception e) {
-			// TODO: handle exception
+			scan.close();
+
 		}
 
-		
-		
 	}
 
 }

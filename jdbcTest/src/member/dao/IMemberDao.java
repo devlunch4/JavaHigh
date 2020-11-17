@@ -51,4 +51,6 @@ public interface IMemberDao {
 	 * @return 검색된 회원 ID 수
 	 */
 	public int getMemberCount(String memId);
+
+	public int updateName(MemberVO memVo);
 }

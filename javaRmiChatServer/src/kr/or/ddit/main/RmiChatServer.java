@@ -1,6 +1,6 @@
 package kr.or.ddit.main;
 
-import java.io.Serializable;
+//import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -14,6 +14,10 @@ import kr.or.ddit.inf.ServerChatInf;
 //서버용 인터페이스를 구현한 클래스
 public class RmiChatServer extends UnicastRemoteObject implements ServerChatInf {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	List<ClientChatInf> clientList = new ArrayList<>();
 
 	// 생성자

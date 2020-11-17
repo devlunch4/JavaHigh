@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 // 이 클래스는 소켓을 통해서 메시지를 보내는 역할을 담당한다.
 public class Sender extends Thread{
+	@SuppressWarnings("unused")
 	private Socket socket;
 	private DataOutputStream dos;
 	private String name;

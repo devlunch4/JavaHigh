@@ -8,9 +8,9 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 import util.DBUtil_t;
-import util.DBUtil2_t;
+//import util.DBUtil2_t;
 import util.DBUtil3_t;
-import util.DBUtil_t;
+//import util.DBUtil_t;
 
 /*
 	회원을 관리하는 프로그램 작성하기

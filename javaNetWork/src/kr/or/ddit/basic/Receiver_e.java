@@ -6,6 +6,7 @@ import java.net.Socket;
 //이클래스는 소켓에서 메시지를 받아서 화면에 출력하는 연할
 public class Receiver_e extends Thread {
 
+	@SuppressWarnings("unused")
 	private Socket socket;
 	private DataInputStream dis;
 

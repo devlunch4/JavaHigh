@@ -7,6 +7,10 @@ import java.io.Serializable;
 //==> 그래서 Serializable 을 구현하여 작성해야한다.
 
 public class TestVO implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String id;
 	private int num;
 	

@@ -23,19 +23,19 @@ public class ThreadTest13_first {
 
 	// 텍스트로 표현
 	public static void main(String[] args) {
-		Horse[] h = new Horse[] { //
-				new Horse("1번말"), //
-				new Horse("2번말"), //
-				new Horse("3번말"), //
+		Horse_first[] h = new Horse_first[] { //
+				new Horse_first("1번말"), //
+				new Horse_first("2번말"), //
+				new Horse_first("3번말"), //
 		};
 
 		// 실행
-		for (Horse horse : h) {
+		for (Horse_first horse : h) {
 			horse.start();
 		}
 
 		// 완주자 대기
-		for (Horse horse : h) {
+		for (Horse_first horse : h) {
 			try {
 				horse.join();
 			} catch (Exception e) {
@@ -45,12 +45,12 @@ public class ThreadTest13_first {
 	}
 }
 
-class Horse extends Thread {
+class Horse_first extends Thread {
 	public String name;
 	public static int rank = 0;
 	public int state = 10;
 
-	public Horse(String name) {
+	public Horse_first(String name) {
 		super();
 		this.name = name;
 		// this.rank = rank;
@@ -70,7 +70,7 @@ class Horse extends Thread {
 		}
 
 		// 완주자 표시
-		Horse.rank++;
+		Horse_first.rank++;
 		System.out.println(name + "완주 ===" + "순위 : " + rank);
 	}
 }

@@ -45,6 +45,7 @@ public class TcpMultiChatClient {
 
 	// 클라이언트 메시지 전송용 메서드
 	class ClientSender extends Thread {
+		@SuppressWarnings("unused")
 		private Socket socket;
 		private DataInputStream dis;
 		private DataOutputStream dos;
@@ -82,7 +83,7 @@ public class TcpMultiChatClient {
 							System.out.println("대화명 입력 >>>>>>");
 							name = scan.nextLine();
 						} else {
-							this.name = name;
+							// this.name = name;
 							System.out.println(name + " 이름으로 대화방에 입장하였습니다.");
 							break;
 						}

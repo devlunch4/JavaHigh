@@ -1,6 +1,6 @@
 package kr.or.ddit.server;
 
-import java.io.BufferedOutputStream;
+//import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.rmi.RemoteException;
@@ -19,6 +19,11 @@ public class RemoteServer extends UnicastRemoteObject implements RmiTestInterfac
 
 	// 생성자도 RemoteExpcetion을 throws 해서 작성한다.
 	// ==> 기본 생성자도 반드시 작성해야한다.
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	public RemoteServer() throws RemoteException {
 	}
@@ -92,7 +97,7 @@ public class RemoteServer extends UnicastRemoteObject implements RmiTestInterfac
 		System.out.println();
 
 		FileOutputStream fout = null;
-		BufferedOutputStream bout = null;
+		// BufferedOutputStream bout = null;
 
 		try {
 			// 클라이언트가 보내온 파일명을 이용하여 스트림 객체 생성.

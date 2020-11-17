@@ -1,12 +1,12 @@
 package util;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+//import java.io.File;
+//import java.io.FileInputStream;
+//import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Properties;
+//import java.util.Properties;
 import java.util.ResourceBundle;
 
 // JDBC 드라이버를 로딩하고, COnnection 객체를 생성하여 반환하는 메서드로 구성된 class

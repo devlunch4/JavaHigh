@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import member.service.IMemberService;
 //일반일시
-import member.service.MemberServiceImpl;
+//import member.service.MemberServiceImpl;
 import member.service.MemberServiceImpl_ex_singleton;
 import member.vo.MemberVO;
 

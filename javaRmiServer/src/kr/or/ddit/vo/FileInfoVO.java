@@ -4,6 +4,10 @@ import java.io.Serializable;
 
 //파일전송용 VO클래스
 public class FileInfoVO implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	// 파일명이 저장될 변수
 	private String fileName;
 	// 파일의 내용이 저장될 변수

@@ -173,6 +173,7 @@ public class PhoneBookTest_data {
 	}
 
 	// 파일에 저장된 전화번호 정보를 읽어오는 메서드
+	@SuppressWarnings("unchecked")
 	public HashMap<String, Phone_data> load() {
 		HashMap<String, Phone_data> pMap = null; // 읽어온 데이터가 저장될 변수
 

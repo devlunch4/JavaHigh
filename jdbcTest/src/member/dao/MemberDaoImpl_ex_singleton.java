@@ -200,7 +200,7 @@ public class MemberDaoImpl_ex_singleton implements IMemberDao {
 				}
 		}
 
-		return null;
+		return memList;
 	}
 
 	@Override
@@ -245,6 +245,45 @@ public class MemberDaoImpl_ex_singleton implements IMemberDao {
 				}
 		}
 
+		return cnt;
+	}
+
+	public int updateName(MemberVO memVo) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		// ResultSet rs = null;
+		int cnt = 0; // 회원ID의 개수가 저장될 변수
+		try {
+			conn = DBUtil3.getConnection();
+
+			String sql = "update mymember set mem_name = ? where mem_id = ? ";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memVo.getMem_name());
+			pstmt.setString(2, memVo.getMem_id());
+
+			cnt = pstmt.executeUpdate();
+
+			if (cnt > 0) {
+				System.out.println("이름 update 작업 성공~~~");
+			} else {
+				System.out.println("수정 작업 실패!!!");
+			}
+
+		} catch (SQLException e) {
+			cnt = 0;
+			e.printStackTrace();
+		} finally {
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}
+			if (conn != null)
+				try {
+					conn.close();
+				} catch (SQLException e) {
+				}
+		}
 		return cnt;
 	}
 

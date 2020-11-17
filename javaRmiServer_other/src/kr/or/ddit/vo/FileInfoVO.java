@@ -3,6 +3,10 @@ package kr.or.ddit.vo;
 import java.io.Serializable;
 
 public class FileInfoVO implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String fileName;		// 파일명이 저장될 변수
 	private byte[] fileData;		// 파일의 내용이 저장될 변수
 	

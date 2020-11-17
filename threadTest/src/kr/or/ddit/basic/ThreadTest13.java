@@ -1,6 +1,6 @@
 package kr.or.ddit.basic;
 
-import java.util.List;
+//import java.util.List;
 
 public class ThreadTest13 {
 
@@ -55,8 +55,8 @@ class Horse extends Thread {
 	public Horse(String name) {
 		super();
 		this.name = name;
-		this.rank = rank;
-		this.state = state;
+		// this.rank = rank;
+		// this.state = state;
 	}
 
 	@Override

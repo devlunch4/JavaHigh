@@ -5,6 +5,7 @@ import java.net.Socket;
 import java.util.Scanner;
 
 public class Sender_e extends Thread {
+	@SuppressWarnings("unused")
 	private Socket socket;
 	private DataOutputStream dos;
 	private String name;

@@ -4,15 +4,15 @@ package kr.or.ddit.basic;
 public class ThreadTest10_Target {
 
 	public static void main(String[] args) {
-		TargetThread t = new TargetThread();
-		StatePrintThread th = new StatePrintThread(t);
+		TargetThread_target t = new TargetThread_target();
+		StatePrintThread_target th = new StatePrintThread_target(t);
 
 		th.start();
 	}
 }
 
 // 쓰레드 상태의 검사 대상이 되는 쓰레드
-class TargetThread extends Thread {
+class TargetThread_target extends Thread {
 	@Override
 	public void run() {
 		for (long i = 1L; i <= 20_000_000_000L; i++) {
@@ -30,11 +30,11 @@ class TargetThread extends Thread {
 }
 
 // TargetThread의 상태를 출력하는 쓰레드
-class StatePrintThread extends Thread {
-	private TargetThread target; // TargetThread가 저장될 변수 선언
+class StatePrintThread_target extends Thread {
+	private TargetThread_target target; // TargetThread가 저장될 변수 선언
 
 	// 생성자
-	public StatePrintThread(TargetThread target) {
+	public StatePrintThread_target(TargetThread_target target) {
 		this.target = target;
 	}
 

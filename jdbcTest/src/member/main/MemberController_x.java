@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import member.service.IMemberService;
 //일반일시
-import member.service.MemberServiceImpl;
+//import member.service.MemberServiceImpl;
 import member.service.MemberServiceImpl_ex_singleton;
 import member.vo.MemberVO;
 
@@ -137,6 +137,12 @@ public class MemberController_x {
 		memVo.setMem_id(memId);
 		memVo.setMem_name(memName);
 		int cnt = service.updateName(memVo);
+		
+		if (cnt > 0) {
+			System.out.println(memId + "회원 정보 수정 성공!!");
+		} else {
+			System.out.println("수정 작업 실패~~~~");
+		}
 
 	}
 

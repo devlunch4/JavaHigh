@@ -80,7 +80,7 @@ public class RemoteClient {
 			inf.transFile(fileVo);
 
 			System.out.println("파일 전송 작업 끝...");
-
+			fin.close();
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		} catch (NotBoundException e) {

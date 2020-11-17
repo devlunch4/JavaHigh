@@ -7,19 +7,19 @@ public class ThreadTest12_alphabet {
 
 	// 주자 설정
 	public static void main(String[] args) {
-		DisplayCharacter[] players = new DisplayCharacter[] { //
-				new DisplayCharacter("1번주자"), //
-				new DisplayCharacter("2번주자"), //
-				new DisplayCharacter("3번주자") //
+		DisplayCharacter_alphabet[] players = new DisplayCharacter_alphabet[] { //
+				new DisplayCharacter_alphabet("1번주자"), //
+				new DisplayCharacter_alphabet("2번주자"), //
+				new DisplayCharacter_alphabet("3번주자") //
 		};
 
 		// 각 주자 쓰레드로 시작
-		for (DisplayCharacter player : players) {
+		for (DisplayCharacter_alphabet player : players) {
 			player.start();
 		}
 
 		// 생성된 players의 쓰레드가 모두 종료 될때까지 기다림.
-		for (DisplayCharacter player : players) {
+		for (DisplayCharacter_alphabet player : players) {
 			try {
 				player.join();
 			} catch (Exception e) {
@@ -28,18 +28,18 @@ public class ThreadTest12_alphabet {
 
 		// 모든것이 끝난 후 출력
 		System.out.println("=============================================");
-		System.out.println("경기 결과 (들어온 순서) : " + DisplayCharacter.rank);
+		System.out.println("경기 결과 (들어온 순서) : " + DisplayCharacter_alphabet.rank);
 	}
 }
 
 // A~Z 까지 출력하는 쓰레드
-class DisplayCharacter extends Thread {
+class DisplayCharacter_alphabet extends Thread {
 	// 빨리 출력한 순서대로 저장할 변수 선언
 	public static String rank = "";
 	private String name;
 
 	// 실행되는 메인 클래스에서 생성시 인자 값 받기 (주자 설정)
-	public DisplayCharacter(String name) {
+	public DisplayCharacter_alphabet(String name) {
 		super();
 		this.name = name;
 	}
@@ -56,6 +56,6 @@ class DisplayCharacter extends Thread {
 			}
 		}
 		System.out.println(name + " 출력끝!!!");
-		DisplayCharacter.rank += name + " ";
+		DisplayCharacter_alphabet.rank += name + " ";
 	}
 }

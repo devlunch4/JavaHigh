@@ -92,6 +92,7 @@ class ConsumerThread extends Thread {
 	public void run() {
 		for (int i = 0; i < 5; i++) {
 			String data = box.getData();
+			System.out.println("데이터 내용 : " + data);
 		}
 	}
 }

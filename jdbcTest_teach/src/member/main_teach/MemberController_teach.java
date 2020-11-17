@@ -1,14 +1,14 @@
 package member.main_teach;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+//import java.sql.Connection;
+//import java.sql.PreparedStatement;
+//import java.sql.ResultSet;
+//import java.sql.SQLException;
+//import java.sql.Statement;
 import java.util.List;
 import java.util.Scanner;
 
-import member.dao_teach.MemberDaoImpl_teach;
+//import member.dao_teach.MemberDaoImpl_teach;
 import member.service_teach.IMemberService_teach;
 import member.service_teach.MemberServiceImpl_teach;
 import member.vo_teach.MemberVO_teach;

@@ -8,17 +8,17 @@ public class ThreadTest04_join_sumTEST {
 
 	public static void main(String[] args) {
 		// 단독으로 처리하는 쓰레드 생성
-		SumThread sm = new SumThread(1L, 2_000_000_000L);
+		SumThread_join_sumTEST sm = new SumThread_join_sumTEST(1L, 2_000_000_000L);
 
 		// 협력처리하는 쓰레드 생성
-		SumThread[] sums = new SumThread[] { //
-				new SumThread(1L, 500_000_000L),
+		SumThread_join_sumTEST[] sums = new SumThread_join_sumTEST[] { //
+				new SumThread_join_sumTEST(1L, 500_000_000L),
 				//
-				new SumThread(500_000_001L, 1_000_000_000L),
+				new SumThread_join_sumTEST(500_000_001L, 1_000_000_000L),
 				//
-				new SumThread(1_000_000_001L, 1_500_000_000L),
+				new SumThread_join_sumTEST(1_000_000_001L, 1_500_000_000L),
 				//
-				new SumThread(1_500_000_001L, 2_000_000_000L)
+				new SumThread_join_sumTEST(1_500_000_001L, 2_000_000_000L)
 				//
 		};
 
@@ -44,7 +44,7 @@ public class ThreadTest04_join_sumTEST {
 			sums[i].start();
 		}
 
-		for (SumThread th : sums) {
+		for (SumThread_join_sumTEST th : sums) {
 			try {
 				th.join();
 			} catch (Exception e) {
@@ -59,12 +59,12 @@ public class ThreadTest04_join_sumTEST {
 }
 
 // 1~20억 단일>>> 변환 >>> 시작값과 입력값을 받도록 수정
-class SumThread extends Thread {
+class SumThread_join_sumTEST extends Thread {
 	// 합계를 구할 영역의 시작값과 종료값을 저장할 변수 선언
 	private long startnum;
 	private long endnum;
 
-	public SumThread(long startsum, long endnum) {
+	public SumThread_join_sumTEST(long startsum, long endnum) {
 		super();
 		this.startnum = startsum;
 		this.endnum = endnum;
@@ -86,11 +86,11 @@ class SumThread extends Thread {
 //////////////////
 // 미사용-미사용-미사용-미사용-미사용-미사용
 // 1~5억 단일
-class SumThread2 extends Thread {
+class SumThread2_join_sumTEST extends Thread {
 	private long startnum;
 	private long endnum;
 
-	public SumThread2(long startsum, long endnum) {
+	public SumThread2_join_sumTEST(long startsum, long endnum) {
 		super();
 		this.startnum = startsum;
 		this.endnum = endnum;

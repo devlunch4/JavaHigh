@@ -56,4 +56,6 @@ public interface IMemberService {
 	 */
 	public int getMemberCount(String memId);
 
+	public int updateName(MemberVO memVo);
+
 }

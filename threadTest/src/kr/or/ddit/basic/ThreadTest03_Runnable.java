@@ -5,7 +5,7 @@ public class ThreadTest03_Runnable {
 	// 쓰레드가 수행되는 시간을 체크해보자
 	public static void main(String[] args) {
 		// 한번에 쓰레드생성. 러너블 받아서
-		Thread th = new Thread(new MyRunner());
+		Thread th = new Thread(new MyRunner_Runnable());
 
 		// currentTimeMillis >> 1970년 1월1일 0시0분0초(표준시간)로 부터 경과한 시간을
 		// 밀리세턴드 (1/1000초) 단위로 반환한다.
@@ -38,7 +38,7 @@ public class ThreadTest03_Runnable {
 
 }
 
-class MyRunner implements Runnable {
+class MyRunner_Runnable implements Runnable {
 
 	@Override
 	public void run() {

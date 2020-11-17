@@ -19,8 +19,8 @@ import javax.swing.JOptionPane;
 
 public class ThreadTest07_pssGame {
 	public static void main(String[] args) {
-		Thread count = new Count();
-		Thread xgame = new xGame();
+		Thread count = new Count_pssGame();
+		Thread xgame = new xGame_pssGame();
 
 		count.start();
 		xgame.start();
@@ -28,12 +28,12 @@ public class ThreadTest07_pssGame {
 	}
 }
 
-class Count extends Thread {
+class Count_pssGame extends Thread {
 	@Override
 	public void run() {
 		for (int i = 10; i > 0; i--) {
 			// 입력이 완료된 여부 검사- 입력이 완료되면 쓰레드를 종료시킨다.
-			if (xGame.inputchk == true) {
+			if (xGame_pssGame.inputchk == true) {
 				return; // run() 메서드가 종료되면 해당 쓰레드로 종료된다.
 				// 하단의 10초지난 출력을 피하기 위해 return을 했다.
 			}
@@ -52,7 +52,7 @@ class Count extends Thread {
 	}
 }
 
-class xGame extends Thread {
+class xGame_pssGame extends Thread {
 	// 입력 여부 확인을 위한 변수 선언 ==> 쓰레드에서 공통으로 사용할 변수
 	public static boolean inputchk;
 

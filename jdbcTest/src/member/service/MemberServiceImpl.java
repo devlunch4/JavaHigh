@@ -49,4 +49,11 @@ public class MemberServiceImpl implements IMemberService {
 		return dao.getMemberCount(memId);
 	}
 
+	@Override
+	public int updateName(MemberVO memVo) {
+		// TODO Auto-generated method stub
+		return  dao.updateName(memVo);
+	}
+
+	
 }

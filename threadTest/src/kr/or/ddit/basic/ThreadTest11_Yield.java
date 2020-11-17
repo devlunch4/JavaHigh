@@ -2,8 +2,8 @@ package kr.or.ddit.basic;
 
 public class ThreadTest11_Yield {
 	public static void main(String[] args) {
-		YieldThread th1 = new YieldThread("1번쓰레드");
-		YieldThread th2 = new YieldThread("2번쓰레드");
+		YieldThread_y th1 = new YieldThread_y("1번쓰레드");
+		YieldThread_y th2 = new YieldThread_y("2번쓰레드");
 
 		th1.start();
 		th2.start();
@@ -37,13 +37,13 @@ public class ThreadTest11_Yield {
 }
 
 // Yield()메서드 연습용 클래스
-class YieldThread extends Thread {
+class YieldThread_y extends Thread {
 	// 쓰레드의 종료 여부를 나타내는 값을 저장하는 변수 선언
 	public boolean stop = false;
 	// 작업을 처리하는 여부를 나타내는 값을 저장하는 변수 선언
 	public boolean work = true;
 
-	public YieldThread(String name) {
+	public YieldThread_y(String name) {
 		// 쓰레드으 이름을 설정한다.
 		super(name);
 

@@ -1,11 +1,9 @@
 package kr.or.ddit.basic;
 
-
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+
 /*
 10마리의 말들이 경주하는 경마 프로그램 작성하기
 
@@ -29,7 +27,7 @@ public class HorseRacing_ttt {
 	public static void main(String[] args) {
 
 		List<Horse_ttt> list = new ArrayList<Horse_ttt>();
-		
+
 		list.add(new Horse_ttt("천둥"));
 		list.add(new Horse_ttt("용식"));
 		list.add(new Horse_ttt("번개"));
@@ -40,18 +38,18 @@ public class HorseRacing_ttt {
 		list.add(new Horse_ttt("도리"));
 		list.add(new Horse_ttt("날쌘"));
 		list.add(new Horse_ttt("당근"));
-		
-		for(Horse_ttt horse : list) {
+
+		for (Horse_ttt horse : list) {
 			horse.start();
 		}
-		
+
 		PrintHorse ph = new PrintHorse(list);
 		ph.start();
-		
+
 	}
 }
 
-class Horse_ttt extends Thread implements Comparable<Horse_ttt>{
+class Horse_ttt extends Thread implements Comparable<Horse_ttt> {
 
 	private String hname;
 	private int rank = 0;
@@ -64,20 +62,20 @@ class Horse_ttt extends Thread implements Comparable<Horse_ttt>{
 
 	@Override
 	public void run() {
-		
-		while(true) {
+
+		while (true) {
 			try {
-				Thread.sleep((int)(Math.random()*400 + 150));
+				Thread.sleep((int) (Math.random() * 400 + 150));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			if(location == 50) {
+			if (location == 50) {
 				break;
 			}
 			location++;
 		}
 	}
-	
+
 	public String getHname() {
 		return hname;
 	}
@@ -108,97 +106,84 @@ class Horse_ttt extends Thread implements Comparable<Horse_ttt>{
 
 	@Override
 	public int compareTo(Horse_ttt horse) {
-		if(this.rank > horse.rank) {
+		if (this.rank > horse.rank) {
 			return 1;
-		}else if(this.rank == horse.rank) {
+		} else if (this.rank == horse.rank) {
 			return 0;
-		}else {
+		} else {
 			return -1;
 		}
 	}
 }
 
-
-class PrintHorse extends Thread{
+class PrintHorse extends Thread {
 	List<Horse_ttt> list;
-	
+
 	public PrintHorse(List<Horse_ttt> horseList) {
 		this.list = horseList;
 	}
-	
+
 	@Override
 	public void run() {
 		String[] arr = new String[50];
 		int rank = 1;
 		boolean running = true;
-		
-		while(running) {
-			
-			for(Horse_ttt horse : list) {
-				if(horse.isGoal() == true) { //도착하면
+
+		while (running) {
+
+			for (Horse_ttt horse : list) {
+				if (horse.isGoal() == true) { // 도착하면
 					System.out.print(horse.getHname() + " : " + " ");
-					
+
 					for (int i = 0; i < 50; i++) {
 						arr[i] = "*";
 						System.out.print(arr[i]);
 					}
 					System.out.println();
 					continue;
-				};
-				
+				}
+				;
+
 				System.out.print(horse.getHname() + " : " + " ");
 				for (int i = 0; i < 50; i++) {
 					arr[i] = "-";
-					if(horse.getLocation() == i) {
+					if (horse.getLocation() == i) {
 						arr[i] = ">";
 					}
 				}
-				
+
 				for (int i = 0; i < 50; i++) {
 					System.out.print(arr[i]);
 				}
 				System.out.println();
-				
-				if(horse.getLocation() >= 50) {
+
+				if (horse.getLocation() >= 50) {
 					horse.setRank(rank);
 					rank++;
 					horse.setGoal(true);
 				}
 			}
-			
+
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			
+
 			for (int i = 0; i < 20; i++) {
 				System.out.println("");
 			}
-			
-			if(rank == 11) {
+
+			if (rank == 11) {
 				System.out.println("============ 경 기 끝 ============");
 				running = false;
 			}
 		}
 		Collections.sort(list);
-		for(Horse_ttt horse : list) {
+		for (Horse_ttt horse : list) {
 			System.out.println(horse.getHname() + " 말  : " + horse.getRank() + " 등!!!");
 			System.out.println();
 		}
 		System.exit(0);
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

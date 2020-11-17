@@ -1,6 +1,5 @@
 package kr.or.ddit.main;
 
-import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -12,6 +11,11 @@ import kr.or.ddit.inf.ServerChatInf;
 
 //클라이언트용 인터페이스를 구현한 클래스
 public class RmiChatClient extends UnicastRemoteObject implements ClientChatInf {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	// 생성자
 	protected RmiChatClient() throws RemoteException {
@@ -54,13 +58,14 @@ public class RmiChatClient extends UnicastRemoteObject implements ClientChatInf 
 					break; // 반복문 탈출
 				}
 				server.sendToAll(msg); // 모두 전송
-				
-				//RMI 연결된 클라이언트와 서버접속 끝내기
+
+				// RMI 연결된 클라이언트와 서버접속 끝내기
 				UnicastRemoteObject.unexportObject(client, true);
 			}
 
 		} catch (Exception e) {
 			// TODO: handle exception
+			scan.close();
 		}
 	}
 }

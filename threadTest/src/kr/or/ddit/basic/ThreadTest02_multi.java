@@ -24,7 +24,7 @@ public class ThreadTest02_multi {
 		// 이 인스턴스의 start()메서드를 호출해서 실행한다.
 
 		// 클래스 호출
-		MyThread1 th1 = new MyThread1();
+		MyThread1_multi th1 = new MyThread1_multi();
 		// 클래스 시작 호출
 		th1.start();
 
@@ -34,7 +34,7 @@ public class ThreadTest02_multi {
 		// 이 떄 생성된 Thread의 인스턴스의 start()메서드를 호출해서 실행한다.
 
 		// 클래스 호출
-		MyThread2 r2 = new MyThread2();
+		MyThread2_multi r2 = new MyThread2_multi();
 		// 클래스를 쓰레드로 입력
 		Thread th2 = new Thread(r2);
 		// 두번째 스레드 시작호출
@@ -63,7 +63,7 @@ public class ThreadTest02_multi {
 }
 
 //////// 방법1
-class MyThread1 extends Thread {
+class MyThread1_multi extends Thread {
 
 	@Override
 	public void run() {
@@ -85,7 +85,7 @@ class MyThread1 extends Thread {
 }
 
 //////// 방법2
-class MyThread2 implements Runnable {
+class MyThread2_multi implements Runnable {
 
 	@Override
 	public void run() {

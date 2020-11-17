@@ -18,6 +18,12 @@ import kr.or.ddit.vo.TestVO;
  */
 public class RemoteServer extends UnicastRemoteObject implements RmiTestInterface{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+
 	// 생성자도 RemoteException을 throws해서 작성
 	//  ==> 기본 생성자도 반드시 작성해야 한다.
 	public RemoteServer() throws RemoteException{}

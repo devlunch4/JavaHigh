@@ -21,12 +21,12 @@ public class TcpServer2 {
 			
 			sender.start();
 			receiver.start();
-			
+			server.close();
 		} catch (IOException e) {
 			// TODO: handle exception
+			
 		}
 		
-
 	}
 
 }

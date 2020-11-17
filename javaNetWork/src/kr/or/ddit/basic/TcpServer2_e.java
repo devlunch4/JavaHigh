@@ -24,7 +24,7 @@ public class TcpServer2_e {
 			
 			sendere.start();
 			receivere.start();
-			
+			server.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 		}
