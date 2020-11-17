@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/PC-20/Downloads/pdbox20201105_9/debugger-app-2.0.21.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC-20/Downloads/pdbox20201105_9/fontbox-2.0.21.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC-20/Downloads/pdbox20201105_9/pdfbox-2.0.21.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC-20/Downloads/pdbox20201105_9/pdfbox-app-2.0.21.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC-20/Downloads/pdbox20201105_9/pdfbox-debugger-2.0.21.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC-20/Downloads/pdbox20201105_9/pdfbox-tools-2.0.21.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC-20/Downloads/pdbox20201105_9/preflight-2.0.21.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC-20/Downloads/pdbox20201105_9/preflight-app-2.0.21.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PC-20/Downloads/pdbox20201105_9/xmpbox-2.0.21.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
