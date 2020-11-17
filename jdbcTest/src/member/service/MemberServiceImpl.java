@@ -2,8 +2,8 @@ package member.service;
 
 import java.util.List;
 
-import mebmer.dao.IMemberDao;
-import mebmer.dao.MemberDaoImpl;
+import member.dao.IMemberDao;
+import member.dao.MemberDaoImpl;
 import member.vo.MemberVO;
 
 public class MemberServiceImpl implements IMemberService {

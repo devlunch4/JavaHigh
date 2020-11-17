@@ -2,8 +2,8 @@ package member.service;
 
 import java.util.List;
 
-import mebmer.dao.IMemberDao;
-import mebmer.dao.MemberDaoImpl_ex_singleton;
+import member.dao.IMemberDao;
+import member.dao.MemberDaoImpl_ex_singleton;
 import member.vo.MemberVO;
 
 public class MemberServiceImpl_ex_singleton implements IMemberService {
