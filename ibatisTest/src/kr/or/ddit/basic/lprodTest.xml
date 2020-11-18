@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 이 xml 문서는 실행할 SQL문을 작성하는 문서입니다. -->
+
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/dtd-map-2.dtd">
+
+<sqlMap namespace="lprod">
+	<!-- 이 부분에 ibatis에서 실행할 SQL문에 맞는 태그를 사용하여 SQL문을 작성한다 -->
+
+	<!-- 사용할수 있는 기본적인 태그들 -->
+	<!-- <select> ~~~ </select> -->
+	<!-- <insert> ~~~ </insert> -->
+	<!-- <update> ~~~ </update> -->
+	<!-- <delete> ~~~ </delete> -->
+
+
+	<!-- id속성 ==> Java 프로그램에서 실행할 쿼리문을 호출할 때 사용되는 이름으로 -->
+	<!-- <sqlMap> 태그의 namespace 속성값과 연결해서 사용한다. -->
+	<!-- (예: lprod.insertLprod) -->
+
+	<!-- parameterClass속성 ==> SQL문서에 사용될 데이터가 들어있는 객체를 기술한다. -->
+	<!-- (보통 VO클래스, 자바의 자료형 이름 등이 사용된다.) -->
+	<!-- VO클래스 등을 기술할 때 해당 클래스의 전체이름(패키지명까지 포함된 이름)을 기술해야한다. -->
+
+	<!-- <insert id="insertLprod" parameterClass="kr.or.ddit.basic.LprodVO"> -->
+	<!-- 위 대신 아래 사용 별칭으로 sqlMapConfig.xml 에서 설정함. -->
+	<insert id="insertLprod" parameterClass="lprodVO"> <!-- 별칭으로 설정 -->
+		<!-- alias LprodVO 를 활용. -->
+		INSERT INTO lprod
+		(lprod_id, lprod_gu, lprod_nm)
+		VALUES(#lprod_id#,
+		#lprod_gu#, #lprod_nm#)
+		<!-- 마지막에 ;을 하지 말아야한다. -->
+		<!-- jdbc의 경우 values(?, ?, ?) -->
+	</insert>
+
+	<update id="updateLprod" parameterClass="lprodVo"> <!-- 별칭으로 설정 -->
+		UPDATE lprod SET lprod_id=#lprod_id#, lprod_nm=#lprod_nm#
+		WHERE
+		lprod_gu = #lprod_gu#
+	</update>
+
+
+	<!-- parameterClass에서 설정 되는 값이 단일값이면 SQL문에 이 값을 나타내는 변수는 이름이 특별히 정해지지 않았다. -->
+	<!-- (즉, 사용자가 임으로 지정할수 있다.) -->
+	<delete id="deleteLprod" parameterClass="string">
+		DELETE FROM lprod
+		WHERE lprod_gu = #lprod_gu#
+		<!-- DELETE FROM lprod WHERE lprod_gu = #asdasd# 도 가능 -->
+	</delete>
+
+
+
+
+</sqlMap>
