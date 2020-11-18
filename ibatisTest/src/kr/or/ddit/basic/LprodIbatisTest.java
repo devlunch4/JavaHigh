@@ -128,6 +128,7 @@ public class LprodIbatisTest {
 			//
 			//
 		} catch (IOException e) {
+			scan.close();
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
