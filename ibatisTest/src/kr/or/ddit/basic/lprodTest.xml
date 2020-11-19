@@ -51,6 +51,19 @@
 		<!-- DELETE FROM lprod WHERE lprod_gu = #asdasd# 도 가능 -->
 	</delete>
 
+	<!-- resultClass 속성 ==> select 문을 처리한 결과를 저장할 VO클래스나 자바 자료형 이름을 지정한다 -->
+	<!-- SELECT 한 결과가 여러개이면 자동으로 List에 담아준다 -->
+	<!-- 그래서 결과가 여러개 일 경우에도 resultClass 속성에 지정하는 것은 -->
+	<!-- 1개의 레코드가 저장될 클래스나 자료형 이름을 지정하면된다. -->
+	<select id="getAllLprod" resultClass="lprodVo">
+		SELECT * FROM lprod
+	</select>
+
+	<select id="getLprod" parameterClass="String"
+		resultClass="lprodVo">
+		SELECT * FROM lprod WHERE lprod_gu = #lprod_gu#
+	</select>
+
 
 
 
