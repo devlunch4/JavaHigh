@@ -1,7 +1,6 @@
 package basic;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,6 +20,7 @@ import util.DBUtil;
 */
 public class JdbcTest05 {
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		
@@ -90,6 +90,7 @@ public class JdbcTest05 {
 			
 			
 		} catch (SQLException e) {
+			scan.close();
 			e.printStackTrace();
 //		} catch (ClassNotFoundException e) {
 //			e.printStackTrace();

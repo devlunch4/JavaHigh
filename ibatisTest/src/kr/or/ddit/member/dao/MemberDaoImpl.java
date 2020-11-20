@@ -1,24 +1,13 @@
 package kr.or.ddit.member.dao;
 
-import java.io.IOException;
-import java.io.Reader;
-import java.nio.charset.Charset;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import com.ibatis.common.resources.Resources;
 import com.ibatis.sqlmap.client.SqlMapClient;
-import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 
 import kr.or.ddit.member.vo.MemberVO;
 import kr.or.ddit.util.BuildedSqlMapClient;
-import kr.or.ddit.util.DBUtil3;
 
 public class MemberDaoImpl implements IMemberDao {
 
@@ -215,6 +204,7 @@ public class MemberDaoImpl implements IMemberDao {
 		return cnt;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<MemberVO> getAllMemberList() {
 		// Connection conn = null;

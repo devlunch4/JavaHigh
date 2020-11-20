@@ -57,6 +57,7 @@ public class JdbcTest02 {
 			}
 			System.out.println("출력 끝...");
 		} catch (SQLException e) {
+			scan.close();
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();

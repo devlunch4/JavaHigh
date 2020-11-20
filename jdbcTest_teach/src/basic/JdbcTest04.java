@@ -82,6 +82,7 @@ public class JdbcTest04 {
 			System.out.println("반환값 cnt = " + cnt);
 			
 		} catch (SQLException e) {
+			scan.close();
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();

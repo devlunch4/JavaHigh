@@ -8,7 +8,6 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 import util.DBUtil;
-import util.DBUtil2;
 import util.DBUtil3;
 
 /*
