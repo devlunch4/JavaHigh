@@ -16,7 +16,7 @@ public class BuildedSqlMapClient {
 			// 1. iBatis의 환경 설정 파일 ()sqlMapConfig.xml)을 읽어와서 실행한다.
 			// 1-1. 문자 인코딩 캐릭터 셋 설정하기
 			Charset charset = Charset.forName("UTF-8");
-			
+
 			Resources.setCharset(charset);
 
 			// 1-2. 환경 설정 파일을 읽어온다.

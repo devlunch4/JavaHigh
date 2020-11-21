@@ -47,13 +47,13 @@ public class HotelDao implements IHotelDao {
 	}
 
 	@Override
-	public int checkOut(String roomNo) {
+	public int checkOut(HotelRoomVO HVo) {
 		int cnt = 0; // 반환값이 저장될 변수 (작업성공 : 1, 실패 : 0)
 
 		try {
-			cnt = smc.update("ihotel.updateCheckOut", roomNo);
+			cnt = smc.update("ihotel.updateCheckOut", HVo);
 
-			System.out.println("체크인 UPDATE 작업 성공~~xml");
+			System.out.println("체크아웃 UPDATE 작업 성공~~xml");
 		} catch (SQLException e) {
 			cnt = 0;
 			e.printStackTrace();
@@ -75,11 +75,11 @@ public class HotelDao implements IHotelDao {
 	}
 
 	@Override
-	public int getRoom(int room_no) {
+	public int checkRoom(int room_no) {
 		int hotelRoomVo;
 
 		try {
-			hotelRoomVo =  (int) smc.queryForObject("ihotel.checkRoom", room_no);
+			hotelRoomVo = (int) smc.queryForObject("ihotel.checkRoom", room_no);
 
 		} catch (SQLException e) {
 			hotelRoomVo = 0;

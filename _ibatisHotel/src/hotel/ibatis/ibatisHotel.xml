@@ -6,6 +6,7 @@
 	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
 	"http://ibatis.apache.org/dtd/dtd-map-2.dtd">
 
+
 <sqlMap namespace="ihotel">
 
 	<!-- parameterClass 는 입력 받는것 -->
@@ -26,15 +27,16 @@
 	</update>
 
 	<!-- 객실 상태 확인 -->
-	<select id="allRoom"  resultClass="HVo">
+	<select id="allRoom" resultClass="HVo">
 		<!-- -->
 		SELECT* FROM Hotelx
 	</select>
-	
-		<!-- 객실 상태 확인 -->
+
+	<!-- 객실 상태 확인 -->
 	<select id="checkRoom" parameterClass="int" resultClass="int">
 		<!-- -->
-		SELECT count(*) cnt FROM Hotelx WHERE guest_name = '-' AND room_no = #room_no# 
+		SELECT count(*) cnt FROM Hotelx WHERE guest_name = '-' AND room_no =
+		#room_no#
 	</select>
 
 

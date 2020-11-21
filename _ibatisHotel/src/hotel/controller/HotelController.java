@@ -20,22 +20,23 @@ public class HotelController {
 		new HotelController().hotelStart();
 	}
 
-	private void hotelStart() {
+	private int hotelStart() {
 		while (true) {
 			int choice = displayMenu();
 			switch (choice) {
 			case 1:
 				checkIn(); // 체크인
 				break;
-			case 2: // checkOut(); // 체크아웃
+			case 2:
+				checkOut(); // 체크아웃
 				break;
 			case 3:
 				allRoom(); // 객실확인
 				break;
-			case 0: // 프로그램 종료
+			case 4: // 프로그램 종료
 				System.out.println();
 				System.out.println("프로그램을 종료합니다.");
-				break;
+				return 0;
 			default:
 				System.out.println("잘못 선택했습니다. 다시 입력하세요.");
 				System.out.println();
@@ -62,6 +63,17 @@ public class HotelController {
 		System.out.println("--------------------------------------");
 	}
 
+	private void checkOut() {
+		System.out.println();
+		System.out.println("체크아웃 할 방번호를 입력해주세요");
+		int roomNo = scan.nextInt();
+
+		HotelRoomVO VO = new HotelRoomVO();
+		VO.setRoom_no(roomNo);
+		int cnt = hotelServise.checkOut(VO);
+
+	}
+
 	private void checkIn() {
 		System.out.println();
 		System.out.println("체크인 할 방번호를 입력해주세요");
@@ -69,17 +81,18 @@ public class HotelController {
 
 		int count = (int) hotelServise.checkRoom(roomNo);
 
-		if (count >= 1 ) {
+		if (count >= 1) {
 			System.out.println();
 			System.out.println("빈방입니다.");
 			System.out.println("투숙객 이름을 입력해 주세요");
 			String guestName = scan.next();
-			
+
 			HotelRoomVO VO = new HotelRoomVO();
 			VO.setGuest_name(guestName);
+			VO.setRoom_no(roomNo);
 			int cnt = hotelServise.checkIn(VO);
-			
-		} else if(count == 0){
+
+		} else if (count == 0) {
 			System.out.println("투숙중이거나 존재하지 않는 방입니다.");
 		}
 

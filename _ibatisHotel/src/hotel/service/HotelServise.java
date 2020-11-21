@@ -28,9 +28,9 @@ public class HotelServise implements IHotelServise {
 	}
 
 	@Override
-	public int checkOut(String roomNo) {
+	public int checkOut(HotelRoomVO HVo) {
 		// TODO Auto-generated method stub
-		return dao.checkOut(roomNo);
+		return dao.checkOut(HVo);
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class HotelServise implements IHotelServise {
 	@Override
 	public int checkRoom(int room_no) {
 
-		return dao.getRoom(room_no);
+		return dao.checkRoom(room_no);
 	}
 
 }
