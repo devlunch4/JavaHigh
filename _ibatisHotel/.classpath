@@ -7,8 +7,8 @@
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="res"/>
-	<classpathentry kind="lib" path="C:/WorkspaceJava/eclipse_workspace/git/JavaHigh/_ibatisHotel/ibatis-2.3.4.726.jar"/>
-	<classpathentry kind="lib" path="C:/WorkspaceJava/eclipse_workspace/git/JavaHigh/_ibatisHotel/log4j-1.2.17.jar"/>
-	<classpathentry kind="lib" path="C:/WorkspaceJava/eclipse_workspace/git/JavaHigh/_ibatisHotel/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="D:/C_Lib/ibatis/ibatis-2.3.4.726.jar"/>
+	<classpathentry kind="lib" path="D:/C_Lib/ibatis/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="D:/C_Lib/ibatis/ojdbc6.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
