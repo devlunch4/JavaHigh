@@ -72,6 +72,7 @@ public class HotelController {
 		VO.setRoom_no(roomNo);
 		int cnt = hotelServise.checkOut(VO);
 
+		
 	}
 
 	private void checkIn() {
